@@ -1,0 +1,39 @@
+{
+	"house_0":{
+    "id":"0",
+		"name":"南北通透，两卧客厅全南，户型非常棒，有户型图0",
+    "pic":"static/img/house/1.jpg",
+    "value":"960 万",
+    "buju":"3室(2厅2卫)",
+    "mianji":"88.5 ㎡",
+    "louceng":"6/2"
+	},
+  "house_1":{
+    "id":"1",
+    "name":"南北通透，两卧客厅全南，户型非常棒，有户型图1",
+    "pic":"static/img/house/2.jpg",
+    "value":"960 万",
+    "buju":"3室(2厅2卫)",
+    "mianji":"88.5 ㎡",
+    "louceng":"6/2"
+  },
+  "house_2":{
+    "id":"2",
+    "name":"南北通透，两卧客厅全南，户型非常棒，有户型图2",
+    "pic":"static/img/house/1.jpg",
+    "value":"960 万",
+    "buju":"3室(2厅2卫)",
+    "mianji":"88.5 ㎡",
+    "louceng":"6/2"
+  },
+  "house_3":{
+    "id":"3",
+    "name":"南北通透，两卧客厅全南，户型非常棒，有户型图3",
+    "pic":"static/img/house/2.jpg",
+    "value":"960 万",
+    "buju":"3室(2厅2卫)",
+    "mianji":"88.5 ㎡",
+    "louceng":"6/2"
+  }
+
+}

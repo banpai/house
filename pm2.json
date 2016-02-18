@@ -1,8 +1,8 @@
 {
   "apps": [{
-    "name": "C:Users29423DocumentsStudyC:Users29423DocumentsStudyhouse_wxr",
+    "name": "C:Users半拍Documents项目C:Users半拍Documents项目banpai",
     "script": "www/production.js",
-    "cwd": "C:\Users\29423\Documents\Study/C:\Users\29423\Documents\Study\house_wxr",
+    "cwd": "C:\Users\半拍\Documents\项目/C:\Users\半拍\Documents\项目\banpai",
     "exec_mode": "cluster",
     "instances": 0,
     "max_memory_restart": "1G",

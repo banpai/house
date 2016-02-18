@@ -1,29 +1,29 @@
 <%include inc/top.html%>
-  <div class="container-fluid ms-controller" ms-controller="home">
-    <div class="row">
-      <div class="col-lg-12">
-        <h1  class="header">房地产销售</h1>
+<div class="container-fluid ms-controller" ms-controller="home">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1  class="header">房地产销售</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="login">
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-2">
-        <div class="login">
+    <div class="col-lg-10">
+      <div class="content">
+        <h2 class="col-lg-12">[%h_data.name%]</h2>
+        <img ms-attr-src="h_data.pic" class="img-responsive img-rounded center-block" alt="Responsive image">
+        <div class="text">
+          <p>价格：[%h_data.value%]。</p>
+          <p>布局：[%h_data.buju%]。</p>
+          <p>面积：[%h_data.mianji%] ㎡。</p>
+          <p>楼层：[%h_data.louceng%]。</p>
         </div>
-      </div>
-      <div class="col-lg-10">
-        <div class="content">
-          <h2 class="col-lg-12">[%h_data.name%]</h2>
-          <img ms-attr-src="h_data.pic" class="img-responsive img-rounded center-block" alt="Responsive image">
-          <div class="text">
-            <p>价格：[%h_data.value%]。</p>
-            <p>布局：[%h_data.buju%]。</p>
-            <p>面积：[%h_data.mianji%] ㎡。</p>
-            <p>楼层：[%h_data.louceng%]。</p>
-          </div>
-          <button type="button" class="btn btn-primary btn-lg bt_up" ms-click="up">上一个</button>
-          <button type="button" class="btn btn-primary btn-lg bt_down" ms-click="down">下一个</button>
-        </div>
+        <button type="button" class="btn btn-primary btn-lg bt_up" ms-click="up">上一个</button>
+        <button type="button" class="btn btn-primary btn-lg bt_down" ms-click="down">下一个</button>
       </div>
     </div>
   </div>
+</div>
 <%include inc/footer.html%>

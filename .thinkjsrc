@@ -1,4 +1,5 @@
 {
-  "createAt": "2016-02-14 09:18:53",
-  "mode": "module"
+  "createAt": "2016-02-17 08:30:27",
+  "mode": "module",
+  "es": true
 }

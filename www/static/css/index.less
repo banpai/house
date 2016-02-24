@@ -1,12 +1,19 @@
-@bg_color: #6F75EF;
+.bs{box-shadow:1px 1px 10px #111;}
+.bsi{box-shadow:1px 1px 10px #111 inset;}
+.ts{text-shadow:1px 1px 10px #111;}
+.ms-controller{visibility: hidden;}
+@bg_color: #337ab7;
+@f_color: #ff0;
 .header{
+  .bsi;
+  .ts;
   background: @bg_color;
   padding-top: 25px;
   padding-bottom: 25px;
   border-radius: 8px;
   text-align: center;
   font-weight: 700;
-  color:#fff;
+  color:@f_color;
 }
 .common{
   margin-top: 10px;
@@ -16,23 +23,179 @@
   margin-bottom: 20px;
 }
 .login{
+  .bsi;
   .common;
+  .log{
+    padding: 5px;
+    width: 80%;
+    height: 200px;
+    border:1px solid @bg_color;
+    position: absolute;
+    top:40px;
+    left:22px;
+    border-radius: 8px;
+    .bs;
+    .h_img{
+      .bs;
+      cursor: pointer;
+      display: block;
+      height: 100px;
+      width: 100px;
+      border-radius: 50px;
+      line-height: 100px;
+      text-align: center;
+      margin: 5px auto;
+      font-size: 36px;
+      @keyframes circle{
+        0%{transform:rotate(0deg);}
+        100%{transform:rotate(360deg);}
+      };
+      @keyframes circle_2{
+        0%{transform:rotate(0deg);}
+        100%{transform:rotate(-360deg);}
+      };
+      animation:circle_2 1.5s ease;
+      transition: all 0.5s ease;
+      &:hover{
+        animation:circle 1.5s ease;
+        transition: all 0.5s ease;
+      };
+    };
+    input{
+      background:@bg_color;
+      margin: 10px 10px;
+      .bsi;
+      padding: 5px;
+      border: 0;
+      color: @f_color;
+    };
+    span{
+      margin-left: 8px;
+      .ts;
+      color: @f_color;
+      font-size: 18px;
+      text-align: center;
+    };
+    .lg_bt{
+      .bs;
+      width: 50px;
+      margin-top: 2px;
+      margin-left: 16px;
+      border-radius: 4px;
+      &:hover{.bsi;};
+    };
+  };
+  @keyframes bt{
+    0%{box-shadow:1px 1px 25px #000;transform:scale(1);}
+    50%{box-shadow:0px 0px 0px #000;transform:scale(0.9);}
+    100%{box-shadow:1px 1px 25px #000 inset;transform:scale(0.9);}
+  };
+  .button{
+    position: absolute;
+    top:264px;left: 36px;
+    width:120px;height:120px;border-radius:15px;
+    background:@bg_color;box-shadow:1px 1px 10px #000;
+    position:relative;
+    .bt_barrage{
+      cursor:pointer;
+      display:block;width:100px;
+      height:100px;
+      border-radius:50px;text-align:center;
+      line-height:100px;font-size:28px;
+      text-decoration:none;color:@f_color;
+      transition:all 0.3s linear;
+      text-shadow:1px 1px 5px #000;
+      background:linear-gradient(140deg,rgba(255,255,255,0.1),rgba(0,0,0,0.6));
+      box-shadow:1px 1px 25px #000;position:absolute;top:10px;right:8px;
+      &:hover{
+        animation:bt .3s linear;
+        transition:all 0.3s linear;
+        box-shadow:1px 1px 25px #000 inset;
+        transform:scale(0.9);
+      };
+    };
+  };
+  .dm{
+    position: absolute;
+    top:425px;
+    left: 22px;
+    background-color: @bg_color;
+    .bs;
+    width: 80%;
+    height: 160px;
+    border-radius: 8px;
+    span{
+      font-size: 28px;
+      color: @f_color;
+      position: relative;
+      top:6px;
+      left: 62px;
+      .ts;
+    };
+    input{
+      width: 80%;
+      margin: 8px 18px;
+      text-align: center;
+      border: 0px;
+      background: @bg_color;
+      .bsi;
+      padding: 5px;
+      color: @f_color;
+      font-size: 18px;
+    };
+    .dm_o{
+      width: 40px;
+      height:40px;
+      border-radius: 20px;
+      margin: 11px 10px;
+      .bs;
+      .ts;
+      &:hover{.bsi;};
+    };
+    .dm_s{
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      margin: -2px 0px;
+      .bs;
+      .ts;
+      &:hover{.bsi;};
+    };
+    .dm_c{
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      margin: 5px 10px;
+      .bs;
+      .ts;
+      &:hover{.bsi;};
+    }
+  }
 }
 .content{
+  .bsi;
   padding-top: 20px;
   .common;
   position: relative;
+  .h_img{.bs;};
   h2{
+    cursor:move;
+    z-index: 999;
     display: block;
     width: 800px;
     position: absolute;
+    top:20px;
     right: 15%;
     text-align: center;
     color: #000;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.5);
+    .bs;
   };
   .text{
+    cursor:move;
+    z-index: 999;
+    .bs;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     position: absolute;
@@ -41,12 +204,98 @@
     font-size: 35px;
     color: #000;
   };
+  .tm{
+    position: absolute;
+    left: 35px;
+    top: 20px;
+    width: 1024px;
+    height: 563px;
+    background-color: rgba(255, 255, 255, 0);
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+    div{
+      overflow: hidden;
+      width: 500px;
+      height: 41px;
+      border-radius: 4px;
+      position:absolute;
+      top:76;left:0;
+      line-height:36px;
+      font-size:20px;
+      font-weight:900;
+      span{
+        padding: 3px;
+        background-color: rgba(255,255,255, 0.6);
+        border-radius: 4px;
+      }
+    };
+  };
   .bt_up{
+    .bs;
+    .ts;
     position: absolute;
     top:300px;
+    color: @f_color;
+    border:0;
   }
   .bt_down{
+    color: @f_color;
+    border:0;
+    .bs;
+    .ts;
     .bt_up;
     right: 0px;
   }
+}
+.h_signin{
+  .bsi;
+  padding-top: 20px;
+  .common;
+  position: relative;
+  .zhuce{
+    width: 400px;
+    height: 540px;
+    .bs;
+    padding: 20px;
+    background: @bg_color;
+    margin: 20px auto;
+    border-radius: 8px;
+    button{
+      width: 80px;
+      height: 40px;
+      color: @f_color;
+      background: @bg_color;
+      border: 0;
+      .bs;
+      font-size: 25px;
+      margin-top: 7px;
+      margin-left: 67px;
+      border-radius: 4px;
+      &:hover{.bsi};
+    };
+    div{
+      width: 320px;
+      height: 40px;
+      margin: 10px auto;
+      position: relative;
+      span{
+        font-size: 20px;
+        color:@f_color;
+        line-height: 40px;
+        .ts;
+      };
+      input{
+        position: absolute;
+        right:0px;
+        padding: 5px;
+        background: @bg_color;
+        .bsi;
+        border: 0;
+        color:@f_color;
+        font-size: 18px;
+      };
+      .born{width: 229px;};
+    };
+  };
 }

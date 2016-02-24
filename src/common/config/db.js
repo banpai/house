@@ -11,7 +11,7 @@ export default {
     mysql: {
       host: '127.0.0.1',
       port: '3307',
-      database: 'test',
+      database: 'house',
       user: 'root',
       password: 'root',
       prefix: 'think_',

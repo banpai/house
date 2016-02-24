@@ -3,38 +3,42 @@ avalon.config({
     interpolate: ["[%","%]"]
 });
 
-$.getJSON("/static/js/json/house.json",function(data){
-		vm.data = data;
-    vm.h_data = vm.data.house_0;
+$.getJSON("home/index/more",function(data){
+    vm.h_data = data.data;
+    vm.len = data.data.length;
 });
 
 //avalon定义变量
 var vm = avalon.define({
   $id:"home",
-  name:"1111",
-  data:{},
-  index:0,
-  h_data:{},
-  up:function(){
-    if(vm.index > 0){
-      vm.index = vm.index - 1;
-      var x = "house_"+vm.index;
-      vm.h_data = vm.data[x];
+  h_data:[],
+  index:1,
+  string:{len:"",u_name:"",u_pass:"",username:"半拍",usersign:"学习学习再学习！"},
+  ms_if:{denlu:true,userinfo:false,connection:false,h_right:true,h_sign:false,h_content:false},
+  submit:function(){
+    if(vm.string.u_name=="半拍" && vm.string.u_pass=="123"){
+      vm.ms_if.denlu = false;
+      vm.ms_if.userinfo = true;
+      vm.ms_if.connection = true;
     }else{
-      vm.h_data = vm.data.house_0;
-      tusi("没有了！！！");
-    };
-  },
-  down:function(){
-    if(vm.index < 3){
-      vm.index = vm.index + 1;
-      var x = "house_"+vm.index;
-      vm.h_data = vm.data[x];
-    }else {
-      vm.h_data = vm.data.house_3;
-      tusi("没有了！！！")
+      tusi("用户名或密码错误！");
     }
-  }
+  },
+  signin:function(){vm.ms_if.h_right = false;vm.ms_if.h_sign = true;},
+  zhuce_submit:function(){
+
+  },
+  zhuce_clear:function(){vm.ms_if.h_right = true;vm.ms_if.h_sign = false;},
+  connect:function(){
+    if(vm.ms_if.connection == false){
+      tusi("请先登录！");
+    }else{
+      alert("OK!");
+    }
+  },
+  flag:function(el){return (el.id == vm.index)?true:false;},
+  up:function(){(vm.index > 1)?vm.index = vm.index - 1:tusi("没有了！！！");},
+  down:function(){(vm.index < vm.len)?vm.index = vm.index + 1:tusi("没有了！！！");}
 });
 
 /**

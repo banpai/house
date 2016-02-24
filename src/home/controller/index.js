@@ -9,9 +9,6 @@ export default class extends Base {
    */
    async indexAction(){
      let data = await this.model('user').select();
-     //auto render template file index_index.html
-     // return this.success("haha");
-     // let m = this.success(data);
      var xx = JSON.stringify(data);
      this.assign({
        title: "house",
@@ -23,7 +20,7 @@ export default class extends Base {
    }
 
    async moreAction() {
-     let data = await this.model('user').select();
+     let data = await this.model('house').select();
      return this.success(data);
    }
 }

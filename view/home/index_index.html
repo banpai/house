@@ -9,24 +9,24 @@
     <div class="col-lg-2">
       <div class="login">
         <div class="log" ms-if="ms_if.denlu">
-          <span>用户名：</span><input type="text" ms-duplex="string.u_name" style="width:90%;"><br />
-          <span>密码：</span><input type="password" ms-duplex="string.u_pass" style="width:90%;">
+          <span>用户名：</span><input type="text" ms-duplex="u_name" style="width:90%;"><br />
+          <span>密码：</span><input type="password" ms-duplex="u_pass" style="width:90%;">
           <input type="button" name="name" value="登录" class="lg_bt" ms-click="submit()">
           <input type="button" name="name" value="注册" class="lg_bt" ms-click="signin()">
         </div>
         <div class="log" ms-if="ms_if.userinfo">
-          <span class="h_img">[%string.username%]</span><br>
-          <span>签名：[%string.usersign%]</span>
+          <span class="h_img">[%u_name%]</span><br>
+          <span>个性签名：[%usersign%]</span>
         </div>
         <div class="button">
-          <a class="bt_barrage" ms-click="connect()">[%string.con_name%]</a>
+          <a class="bt_barrage" ms-click="connect()">[%con_name%]</a>
         </div>
         <div class="dm">
           <span>弹幕</span>
-          <input type="text" class="text">
-          <input type="button" name="name" value="开" class="dm_o">
-          <input type="button" name="name" value="发送" class="dm_s">
-          <input type="button" name="name" value="关" class="dm_c">
+          <input type="text" class="text" ms-duplex="dm_msg">
+          <input type="button" name="name" value="开" class="dm_o" ms-click="dm_open()">
+          <input type="button" name="name" value="发送" class="dm_s" ms-click="dm_send()">
+          <input type="button" name="name" value="关" class="dm_c" ms-click="dm_close()">
         </div>
       </div>
     </div>
@@ -44,32 +44,23 @@
             </div>
           </div>
         </div>
-        <div class="tm">
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
-          <div><span>好漂亮的别墅！</span></div>
+        <div class="tm" ms-repeat="dm_say">
+          <div><span>[%el.msg%]</span></div>
         </div>
         <button type="button" class="btn btn-primary btn-lg bt_up" ms-click="up">上一个</button>
         <button type="button" class="btn btn-primary btn-lg bt_down" ms-click="down">下一个</button>
       </div>
       <div class="h_signin" ms-if="ms_if.h_sign">
         <div class="zhuce">
-          <div><span>用户名：</span><input type="text" ms-duplex="username"></div>
-          <div><span>QQ号：</span><input type="number" ms-duplex="qq"></div>
-          <div><span>邮箱：</span><input type="number" ms-duplex="mail"></div>
-          <div><span>手机号：</span><input type="number" ms-duplex="telephone"></div>
-          <div><span>证件号：</span><input type="number" ms-duplex="zhenjian"></div>
-          <div><span>出生年月：</span><input type="date" class="born" ms-duplex="born"></div>
-          <div><span>密码：</span><input type="password" ms-duplex="pass"></div>
-          <div><span>确认：</span><input type="password" ms-duplex="r_pass"></div>
-          <div><span>个性签名：</span><input type="text" ms-duplex="sign"></div>
+          <div><span>用户名：</span><input type="text" placeholder="两个字" ms-duplex="username"></div>
+          <div><span>QQ号：</span><input type="number" placeholder="选填" ms-duplex="qq"></div>
+          <div><span>邮箱：</span><input type="text" placeholder="选填" ms-duplex="mail"></div>
+          <div><span>手机号：</span><input type="number" placeholder="必填" ms-duplex="telephone"></div>
+          <div><span>身份证号：</span><input type="number" placeholder="必填" ms-duplex="zhenjian"></div>
+          <div><span>出生年月：</span><input type="date" placeholder="选填" class="born" ms-duplex="born"></div>
+          <div><span>密码：</span><input type="password" placeholder="必填" ms-duplex="pass"></div>
+          <div><span>确认：</span><input type="password" placeholder="密码确认" ms-duplex="r_pass"></div>
+          <div><span>个性签名：</span><input type="text" placeholder="选填" ms-duplex="sign"></div>
           <button type="button" name="button" ms-click="zhuce_submit()">确定</button>
           <button type="button" name="button" ms-click="zhuce_clear()">取消</button>
         </div>
@@ -92,5 +83,5 @@
     </div>
   </div>
 </div>
-<script src="static/js/dm.js" charset="utf-8"></script>
+<script src="static/js/<%= js%>.js" charset="utf-8"></script>
 <%include inc/footer.html%>

@@ -8,8 +8,6 @@ export default class extends Base {
    * @return {Promise} []
    */
    async indexAction(){
-     let data = await this.model('user').select();
-     var xx = JSON.stringify(data);
      this.assign({
        title: "house",
        css: "index",
@@ -46,6 +44,36 @@ export default class extends Base {
        sign:sign
      }
      let result = await this.model('user').add(data);
+     return this.success(result);
+   }
+   async dlAction() {
+     let name = this.post('u_name');
+     let pass = this.post("u_pass");
+     let model = this.model("user");
+     let data = await model.where({username:name}).find();
+     let msg = "";
+     if(data.pass == pass){
+       msg = data.sign;
+     };
+     return this.success(msg);
+   }
+   async dmAction() {
+     let index = this.post('id');
+     let model = this.model("dm");
+     let data = await model.where({dm_id:index}).select();
+     return this.success(data);
+   }
+   async adddmAction() {
+     let index = this.post('id');
+     let msg = this.post('msg');
+     let name = this.post('name');
+     let model = this.model("dm");
+     let data = {
+       username: name,
+       dm_id:index,
+       msg:msg
+     }
+     let result = await this.model('dm').add(data);
      return this.success(result);
    }
 }

@@ -12,8 +12,17 @@ $.getJSON("home/index/more",function(data){
 var vm = avalon.define({
   $id:"home",
   h_data:[],
+  zl:{},
   index:1,
-  string:{len:"",u_name:"",u_pass:"",username:"半拍",usersign:"学习学习再学习！"},
+  string:{
+    len:"",
+    u_name:"",
+    u_pass:"",
+    username:"半拍",
+    usersign:"学习学习再学习！",
+    con_name:"联系"
+  },
+  username:"",qq:"",mail:"",telephone:"",zhenjian:"",born:"",pass:"",r_pass:"",sign:"",
   ms_if:{denlu:true,userinfo:false,connection:false,h_right:true,h_sign:false,h_content:false},
   submit:function(){
     if(vm.string.u_name=="半拍" && vm.string.u_pass=="123"){
@@ -26,15 +35,58 @@ var vm = avalon.define({
   },
   signin:function(){vm.ms_if.h_right = false;vm.ms_if.h_sign = true;},
   zhuce_submit:function(){
-
+    $.ajax({
+        url: "home/index/zhuce",
+        dataType: "json",
+        async: true,
+        data: {
+          "username": vm.username,
+          "qq":vm.qq,
+          "mail":vm.mail,
+          "telephone":vm.telephone,
+          "zhenjian":vm.zhenjian,
+          "pass":vm.pass,
+          "sign":vm.sign
+        },
+        type: "POST",
+        success: function(data) {
+          if(data.data){
+            vm.ms_if.h_right = true;
+            vm.ms_if.h_sign = false;
+            vm.ms_if.h_content = false;
+          }else{
+            tusi("参数错误！！！");
+          };
+        }
+    });
   },
   zhuce_clear:function(){vm.ms_if.h_right = true;vm.ms_if.h_sign = false;},
   connect:function(){
     if(vm.ms_if.connection == false){
       tusi("请先登录！");
     }else{
-      alert("OK!");
-    }
+      if(vm.string.con_name == "联系"){
+        $.ajax({
+            url: "home/index/zl",
+            dataType: "json",
+            async: true,
+            data: { "id": vm.index},
+            type: "POST",
+            success: function(data) {
+              vm.zl = data;
+            }
+        });
+        vm.ms_if.h_right = false;
+        vm.ms_if.h_sign = false;
+        vm.ms_if.h_content = true;
+        vm.string.con_name = "返回";
+      }else{
+        vm.ms_if.h_right = true;
+        vm.ms_if.h_sign = false;
+        vm.ms_if.h_content = false;
+        vm.string.con_name = "联系";
+      };
+    };
   },
   flag:function(el){return (el.id == vm.index)?true:false;},
   up:function(){(vm.index > 1)?vm.index = vm.index - 1:tusi("没有了！！！");},

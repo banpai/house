@@ -167,7 +167,7 @@ var vm = avalon.define({
             data: {"msg":vm.dm_msg,"id":vm.index,"name":vm.u_name},
             type: "POST",
             success: function(data) {
-              if(data.result != "0"){
+              if(data.data == ""){
                 tusi("存储失败！");
               }
             }
